@@ -8,7 +8,7 @@ db.once('open', (callback) => {
 })
 
 var photoSchema = new Schema({
-    id:Number,
+    _id:String,
     name:String,
     path:String
 })
