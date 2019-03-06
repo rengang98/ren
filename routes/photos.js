@@ -17,12 +17,7 @@ router.get('/', (req, res, next) => {
 router.get('/create', (req, res, next) => {
     res.render('photos/create', {title: "添加图片"})
 })
-router.post('/create', async (req, res, next) => {
-    let length = await 0
-    await photoModel.find({}, (err, result) => {
-        if (err) return console.log(err)
-        length = result.length + 1
-    })
+router.post('/create', (req, res, next) => {
     let newPhoto = [{
         _id: uuid.v4(),
         name: req.body.name,

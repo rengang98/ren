@@ -17,6 +17,8 @@
     "morgan": "~1.9.0",
     "node-uuid": "^1.4.8",
     "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "syncrequest": "^1.4.6",
     "uuid": "^3.3.2"
   }
 }
