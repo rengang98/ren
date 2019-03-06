@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %>:</p>
+<a href="/photos">返回图片首页</a>
+<form method="post">
+    name：<input type="text" id="picName" name="name"/>
+    <input type="submit" value="查找">
+</form>
+<p>结果可能大于一张</p>
+</body>
+</html>

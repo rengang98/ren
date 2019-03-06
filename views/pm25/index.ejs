@@ -10,16 +10,10 @@
 </head>
 <body>
 <h1><%= title %></h1>
-<p>Welcome to <%= title %>:</p>
-<a href="/photos/create">添加图片</a>
-<a href="/photos/search">图片查找</a>
-<div id="photos">
-    <% photos.forEach(function (photo) { %>
-    <div class="photo">
-        <h2><%= photo.name %></h2>
-        <img src="<%= photo.path %>">
-    </div>
-    <% }) %>
-</div>
+<p>Welcome to <%= title %>，请输入城市名：</p>
+<form method="post">
+    <input type="text" id="cityName" name="city"/>
+    <input type="submit" value="查询">
+</form>
 </body>
 </html>

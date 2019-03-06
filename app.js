@@ -10,7 +10,7 @@ var env = process.env.NODE_ENV || 'development'
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var photosRouter = require('./routes/photos');
-var pmRouter = require('./routes/pm2.5');
+var pmRouter = require('./routes/pm25');
 
 var app = express();
 
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/photos', photosRouter);
-app.use('/pm2.5', pmRouter);
+app.use('/pm25', pmRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
