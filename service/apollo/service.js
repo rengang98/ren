@@ -1,6 +1,6 @@
 var apollo = require('node-apollo')
 var apolloConfig = require('../../config/apolloConfig').test
-
+const assert = require('assert');
 
 async function remoteConfigService(apolloConfig) {
     let res =await apollo.remoteConfigService(apolloConfig)
@@ -10,9 +10,23 @@ async function remoteConfigService(apolloConfig) {
 }
 
 async function remoteConfigServiceFromCache(apolloConfig) {
-    let res = await apollo.remoteConfigServiceFromCache(apolloConfig)
-    console.log(res)
-    return res
+    return await apollo.remoteConfigServiceFromCache(apolloConfig)
 }
 
-remoteConfigService(apolloConfig)
+async function write(res) {
+    try {
+        await apollo.createEnvFile(res)
+        await apollo.setEnv()
+    }catch (e){
+        assert(e,"fail")
+    }
+
+    return 'success'
+}
+
+async function update(apolloConfig) {
+    let res = await remoteConfigServiceFromCache(apolloConfig)
+    return write(res)
+}
+
+update(apolloConfig)
