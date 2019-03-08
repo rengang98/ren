@@ -13,10 +13,15 @@ async function remoteConfigServiceFromCache(apolloConfig) {
     return await apollo.remoteConfigServiceFromCache(apolloConfig)
 }
 
+async function remoteConfigServiceSkipCache(apolloConfig) {
+    return await apollo.remoteConfigServiceSkipCache(apolloConfig)
+}
+
 async function write(res) {
     try {
         await apollo.createEnvFile(res)
-        await apollo.setEnv()
+        console.log(res)
+        // await apollo.setEnv()
     }catch (e){
         assert(e,"fail")
     }
@@ -25,8 +30,9 @@ async function write(res) {
 }
 
 async function update(apolloConfig) {
-    let res = await remoteConfigServiceFromCache(apolloConfig)
+    let res = await remoteConfigServiceSkipCache(apolloConfig)
     return write(res)
 }
 
-update(apolloConfig)
+remoteConfigService(apolloConfig)
+// update(apolloConfig)
