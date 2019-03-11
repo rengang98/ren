@@ -5,6 +5,7 @@ module.exports = {
         clusterName:"renCluster",
         namespaceName:"renPractice",
         token:'003bed22a80764366c4ef4439e2c0f016bc8dfd6',
-        apolloEnv:'DEV'
+        apolloEnv:'DEV',
+        releaseKey:'20190307173104-release'
     },
 }
